@@ -1,4 +1,11 @@
 import { Text, View } from 'react-native';
+import {
+  Checkbox,
+  CheckboxIndicator,
+  CheckboxLabel,
+  CheckboxIcon,
+} from 'src/components/ui/checkbox';
+import { CheckIcon } from '@/components/ui/icon';
 
 export const EditScreenInfo = ({ path }: { path: string }) => {
   const title = 'Open up the code for this screen:';
@@ -11,6 +18,14 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
         <Text className={styles.getStartedText}>{title}</Text>
         <View className={styles.codeHighlightContainer + styles.homeScreenFilename}>
           <Text className='bg-red-800'>{path}</Text>
+          <Checkbox value='Completed' isDisabled={false} isInvalid={false} size='md'>
+            <CheckboxIndicator>
+              <CheckboxIcon as={CheckIcon}/>
+            </CheckboxIndicator>
+            <CheckboxLabel>
+              Label
+            </CheckboxLabel>
+          </Checkbox>
         </View>
         <Text className={styles.getStartedText}>{description}</Text>
       </View>
