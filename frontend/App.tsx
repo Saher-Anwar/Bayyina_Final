@@ -1,15 +1,15 @@
-import { ScreenContent } from '@/components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 
 import './global.css';
+import { Text } from 'react-native';
 
 export default function App() {
   return (
     
     <GluestackUIProvider mode="dark">
       <>
-      <ScreenContent title="Home" path="App.tsx"></ScreenContent>
+      <Text>Testing</Text>
       <StatusBar style="auto" />
     </>
     </GluestackUIProvider>
