@@ -1,24 +1,35 @@
-import { View, Text } from 'react-native';
-import { Link } from 'expo-router';
+import { View, Text, FlatList } from 'react-native';
+import { useRouter } from 'expo-router';
 import { AppHeader } from '@/components/Navigation/AppHeader';
+import { SurahListItem } from '@/components/Quran/SurahListItem';
+import { surahs } from '@/data/surahs';
+import BismillahHeader from '@/components/Quran/BismillahHeader';
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleSurahPress = (surahNumber: number) => {
+    // TODO: Navigate to surah page
+    console.log(`Navigate to Surah ${surahNumber}`);
+  };
+
   return (
     <View className="flex-1 bg-background-0">
-      <AppHeader title="Quran Reader" />
-
-      <View className="flex-1 justify-center items-center px-6">
-        <Text className="text-3xl font-bold text-primary-600 mb-2 text-center">
-          بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-        </Text>
-        <Text className="text-typography-600 mb-8 text-center">
-          In the name of Allah, the Most Gracious, the Most Merciful
-        </Text>
-
-        <Link className='text-primary-600 mt-4 font-medium' href={'/settings'}>
-          Go to Settings →
-        </Link>
-      </View>
+      <AppHeader title="Surahs" />
+      
+      {/* Surah List */}
+      <FlatList
+        data={surahs}
+        keyExtractor={(item) => item.number.toString()}
+        renderItem={({ item }) => (
+          <SurahListItem
+            surah={item}
+            onPress={() => handleSurahPress(item.number)}
+          />
+        )}
+        contentContainerStyle={{ paddingVertical: 8 }}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 }
