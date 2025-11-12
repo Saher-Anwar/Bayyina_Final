@@ -6,6 +6,7 @@ import { DrawerProvider, useDrawer } from '@/contexts/DrawerContext';
 import { NavigationDrawer } from '@/components/Navigation/NavigationDrawer';
 
 import '../global.css';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function RootLayoutContent() {
   const { theme } = useTheme();
@@ -13,11 +14,13 @@ function RootLayoutContent() {
 
   return (
     <GluestackUIProvider mode={theme}>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </SafeAreaView>
       <NavigationDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
     </GluestackUIProvider>
   );
