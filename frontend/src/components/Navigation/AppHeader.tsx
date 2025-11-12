@@ -19,7 +19,7 @@ export function AppHeader({ title }: AppHeaderProps) {
         <Menu size={24} color="white" />
       </Pressable>
 
-      <Text className="text-xl font-semibold text-white flex-1">
+      <Text className="text-xl font-semibold text-secondary-0 flex-1">
         {title}
       </Text>
     </View>
