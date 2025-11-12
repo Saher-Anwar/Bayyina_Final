@@ -15,7 +15,7 @@ function RootLayoutContent() {
 
   return (
     <GluestackUIProvider mode={theme}>
-      <StatusBar style="auto" animated />
+      <StatusBar style="dark" animated />
       <SafeAreaView style={{ flex: 1 }}>
         <Stack
           screenOptions={{
