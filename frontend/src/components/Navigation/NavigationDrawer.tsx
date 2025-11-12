@@ -45,10 +45,10 @@ export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
       <DrawerContent className="w-4/5 max-w-sm bg-background-0">
         <SafeAreaView style={{ flex: 1 }}>
           <DrawerHeader className="border-b-2 border-tertiary-400 bg-primary-400 py-6 px-6">
-            <Text className="text-2xl font-bold text-white tracking-wide">
+            <Text className="text-2xl font-bold text-secondary-400 tracking-wide">
               Menu
             </Text>
-            <Text className="text-xs text-tertiary-100 mt-1">
+            <Text className="text-xs text-tertiary-400 mt-1">
               Quran Reader
             </Text>
           </DrawerHeader>
