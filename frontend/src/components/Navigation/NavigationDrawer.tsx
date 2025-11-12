@@ -35,11 +35,11 @@ export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
   };
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose} placement="left">
+    <Drawer isOpen={isOpen} onClose={onClose}>
       <DrawerBackdrop />
-      <DrawerContent className="w-4/5 max-w-sm">
+      <DrawerContent className="w-4/5 max-w-sm bg-primary-500">
         <DrawerHeader className="border-b border-outline-200">
-          <Text className="text-2xl font-bold text-typography-900">
+          <Text className="text-2xl font-bold text-secondary-0">
             Navigation
           </Text>
         </DrawerHeader>
@@ -53,14 +53,14 @@ export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
                 key={item.path}
                 onPress={() => handleNavigation(item.path)}
                 className={`px-6 py-4 border-b border-outline-100 ${
-                  isActive ? 'bg-primary-100' : ''
+                  isActive ? 'bg-secondary-100' : ''
                 }`}
               >
                 <Text
                   className={`text-lg ${
                     isActive
                       ? 'text-primary-600 font-semibold'
-                      : 'text-typography-700'
+                      : 'text-secondary-700 font-semibold'
                   }`}
                 >
                   {item.label}
