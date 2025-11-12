@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
 export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   
   const handleNavigation = (path: string) => {
     router.push(path);
@@ -42,11 +42,14 @@ export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
   return (
     <Drawer isOpen={isOpen} onClose={onClose}>
       <DrawerBackdrop />
-      <DrawerContent className="w-4/5 max-w-sm bg-primary-500">
+      <DrawerContent className="w-4/5 max-w-sm bg-background-0">
         <SafeAreaView style={{ flex: 1 }}>
-          <DrawerHeader className="border-b border-outline-200">
-            <Text className="text-2xl font-bold text-secondary-0">
-              Navigation
+          <DrawerHeader className="border-b-2 border-tertiary-400 bg-primary-400 py-6 px-6">
+            <Text className="text-2xl font-bold text-white tracking-wide">
+              Menu
+            </Text>
+            <Text className="text-xs text-tertiary-100 mt-1">
+              Quran Reader
             </Text>
           </DrawerHeader>
 
@@ -59,14 +62,14 @@ export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
                   key={item.path}
                   onPress={() => handleNavigation(item.path)}
                   className={`px-6 py-4 border-b border-outline-100 ${
-                    isActive ? 'bg-secondary-100' : ''
+                    isActive ? 'bg-primary-50 border-l-4 border-l-tertiary-400' : ''
                   }`}
                 >
                   <Text
-                    className={`text-lg ${
+                    className={`text-base ${
                       isActive
-                        ? 'text-primary-600 font-semibold'
-                        : 'text-secondary-700 font-semibold'
+                        ? 'text-primary-700 font-bold'
+                        : 'text-typography-700 font-medium'
                     }`}
                   >
                     {item.label}
@@ -76,9 +79,14 @@ export function NavigationDrawer({ isOpen, onClose }: NavigationDrawerProps) {
             })}
           </DrawerBody>
 
-          <DrawerFooter>
-            <Button onPress={toggleTheme}>
-              <ButtonText>Dark Mode</ButtonText>
+          <DrawerFooter className="p-4 border-t border-outline-200">
+            <Button
+              onPress={toggleTheme}
+              className="bg-tertiary-400 rounded-lg"
+            >
+              <ButtonText className="text-white font-semibold">
+                Toggle Dark Mode
+              </ButtonText>
             </Button>
           </DrawerFooter>
         </SafeAreaView>

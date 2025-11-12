@@ -1,18 +1,23 @@
-import { View, Text, Button } from 'react-native';
-import { useTheme } from '@/components/ui/ThemeProvider/ThemeProvider';
+import { View, Text } from 'react-native';
 import { Link } from 'expo-router';
 import { AppHeader } from '@/components/Navigation/AppHeader';
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <View className="flex-1 bg-primary-950">
-      <AppHeader title="Home" />
+    <View className="flex-1 bg-background-0">
+      <AppHeader title="Quran Reader" />
 
-      <View className="flex-1 justify-center items-center">
-        <Text className="text-secondary-0 mb-4">Home Screen</Text>
-        <Link className='text-secondary-0 mt-4' href={'/settings'}>Settings</Link>
+      <View className="flex-1 justify-center items-center px-6">
+        <Text className="text-3xl font-bold text-primary-600 mb-2 text-center">
+          بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+        </Text>
+        <Text className="text-typography-600 mb-8 text-center">
+          In the name of Allah, the Most Gracious, the Most Merciful
+        </Text>
+
+        <Link className='text-primary-600 mt-4 font-medium' href={'/settings'}>
+          Go to Settings →
+        </Link>
       </View>
     </View>
   );
