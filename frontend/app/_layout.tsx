@@ -1,12 +1,13 @@
 import React from 'react';
 import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { ThemeProvider, useTheme } from '@/components/ui/ThemeProvider/ThemeProvider';
 import { DrawerProvider, useDrawer } from '@/contexts/DrawerContext';
 import { NavigationDrawer } from '@/components/Navigation/NavigationDrawer';
 
 import '../global.css';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 function RootLayoutContent() {
   const { theme } = useTheme();
@@ -14,6 +15,7 @@ function RootLayoutContent() {
 
   return (
     <GluestackUIProvider mode={theme}>
+      <StatusBar style="auto" animated />
       <SafeAreaView style={{ flex: 1 }}>
         <Stack
           screenOptions={{
@@ -28,10 +30,12 @@ function RootLayoutContent() {
 
 export default function Layout() {
   return (
-    <ThemeProvider>
-      <DrawerProvider>
-        <RootLayoutContent />
-      </DrawerProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <DrawerProvider>
+          <RootLayoutContent />
+        </DrawerProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

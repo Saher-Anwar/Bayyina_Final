@@ -12,7 +12,6 @@ export default function Home() {
 
       <View className="flex-1 justify-center items-center">
         <Text className="text-secondary-0 mb-4">Home Screen</Text>
-        <Button title={`Toggle Theme (${theme})`} onPress={toggleTheme} />
         <Link className='text-secondary-0 mt-4' href={'/settings'}>Settings</Link>
       </View>
     </View>
